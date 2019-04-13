@@ -14,9 +14,8 @@ import java.util.List;
 @RestController
 public class SurveyController {
 
-    public static final String createSurveyUrl = "/survey/create";
-    public static final String allSurveysUrl = "/survey/all";
-
+    private static final String createSurveyUrl = "/survey/create";
+    private static final String allSurveysUrl = "/survey/all";
 
     @Autowired
     private SurveyTemplateRepository repo;
