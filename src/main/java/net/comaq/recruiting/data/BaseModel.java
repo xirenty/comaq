@@ -1,5 +1,7 @@
 package net.comaq.recruiting.data;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
@@ -17,14 +19,19 @@ public abstract class BaseModel {
 	@GeneratedValue
 	@Column(nullable = false, updatable = false)
 	private Long id;
-	
+
+	@JsonProperty(required = false)
 	private String createdBy;
+	@JsonProperty(required = false)
 	private LocalDateTime createdAt;
+	@JsonProperty(required = false)
 	private String lastEditedBy;
+	@JsonProperty(required = false)
 	private LocalDateTime lastEditedAt;
 	
 	public BaseModel() {
 		createdAt = LocalDateTime.now();
+		lastEditedAt = LocalDateTime.now();
 	}
 
 	public String getCreatedBy() {

@@ -1,0 +1,181 @@
+html, body{
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+body{
+    background-image:linear-gradient(to bottom, #20262b 0%, #366d8c 100%);
+    background-repeat: no-repeat; 
+    height:auto;
+    font-family: 'Lato', sans-serif;
+    /*min-height: "px";*/
+}
+
+#header{
+    /*background-color: #f3f3f3;*/
+    height: 60px;
+    box-shadow: 0px 0px 50px #000000;
+
+}
+
+#start_menu_button{
+    margin-left: 10px;
+}
+
+#container{
+    color: white;
+    font: 15px arial, sans-serif;
+    margin-left: 10px;
+    /*background-color: #59168f;*/
+}
+
+h1{
+    filter: drop-shadow(0px 0px 5px #000000);
+}
+
+#main_settings_button{
+    margin-left: auto;
+    margin-right: 10px;
+    margin-top: 8px;
+}
+
+#survey_options{
+    width: 140px;
+    display: flex;
+    align-items: center;
+}
+
+#survey_selector{
+    display: inline-block;
+    margin-right: auto;
+}
+
+#survey_settings_button{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#add_survey_button{
+    display: inline-block;
+    margin-left: auto;
+  }
+
+.button img:hover {
+    filter: drop-shadow(0px 0px 5px #a1a1a1);
+  }
+
+
+
+
+
+  .survey_settings_overlay {
+    height: 100%;
+    width: 0%;
+    position: fixed;
+    z-index: 1;
+    top: 60px;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+    overflow-y: hidden;
+    transition: 0.5s;
+  }
+  
+  .survey_settings_content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .survey_settings_overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .survey_settings_overlay a:hover, .survey_settings_overlay a:focus {
+    color: #f1f1f1;
+  }
+  
+  .survey_settings_overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .survey_settings_overlay {overflow-y: auto;}
+    .survey_settings_overlay a {font-size: 20px}
+    .survey_settings_overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+    }
+  }
+
+
+
+  .start_menu_overlay {
+    height: 60px;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(255, 255, 255);
+    overflow-y: hidden;
+    transition: 0.5s;
+    
+  }
+  
+  .start_menu_content {
+    /*position: relative;*/
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    height: 60px;
+  }
+  
+  .start_menu_overlay a {
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .start_menu_overlay a:hover, .start_menu_overlay a:focus {
+    color: #f1f1f1;
+  }
+  
+  .start_menu_overlay .closebtn {
+    position: absolute;
+    right: 45px;
+    font-size: 60px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .start_menu_overlay {overflow-y: auto;}
+    .start_menu_overlay a {font-size: 20px}
+    .start_menu_overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+    }
+  }
+
+
+

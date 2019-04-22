@@ -1,21 +1,19 @@
-package net.comaq.recruiting.web.controller;
+package net.comaq.recruiting.web.controller.survey;
 
 import net.comaq.recruiting.data.SurveyTemplate;
 import net.comaq.recruiting.data.repository.SurveyTemplateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-public class SurveyController {
+@RequestMapping("/rest/survey")
+public class SurveyRestController {
 
-    private static final String createSurveyUrl = "/survey/create";
-    private static final String allSurveysUrl = "/survey/all";
+    private static final String createSurveyUrl = "/create";
+    private static final String allSurveysUrl = "/all";
 
     @Autowired
     private SurveyTemplateRepository repo;
@@ -25,9 +23,14 @@ public class SurveyController {
         repo.save(new SurveyTemplate("name"));
     }
 
-    @GetMapping(value = "/survey/{id}")
-    public SurveyTemplate getById(@PathVariable(value = "id") Long id) {
+    @PutMapping
+    public boolean createSurvey(@RequestBody SurveyTemplate survey) {
+        repo.save(survey);
+        return true;
+    }
 
+    @GetMapping(value = "/{id}")
+    public SurveyTemplate getById(@PathVariable(value = "id") Long id) {
         return repo.findById(id).orElse(null);
     }
 
@@ -37,5 +40,4 @@ public class SurveyController {
         repo.findAll().forEach(result::add);
         return result;
     }
-
 }

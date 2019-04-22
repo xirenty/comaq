@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+
+
+	<head>
+
+
+
+		<title>start_menu</title>
+
+		<link rel="stylesheet" href="/styles/datenuebersicht/style.css" />
+
+	
+		<script
+		src="https://code.jquery.com/jquery-latest.js">
+		</script>
+
+	
+		<script>
+		function sizeContent() {
+			var newHeight = $("html").height() + "px";
+			$("body").css("min-height", newHeight); 
+		}
+	 	</script>
+
+
+	 	<script>
+			$(document).ready(function () {
+ 			 sizeContent();
+ 			 $(window).resize(sizeContent);
+			});
+		</script>
+	
+		<meta name="viewport" content="width=device-width, initial-scale=1">	
+
+
+	</head>
+
+
+
+	<body>
+
+
+
+
+		<div id="header">
+
+			<!--
+			<div class="button" id="start_menu_button">
+				<span style="cursor:pointer" onclick="open_start_menu()"><img src="/imgs/comaq_logo.png" alt="link_image" height="40" width="150"></span>
+			</div>
+				
+				
+			<div class="button" id="main_settings_button">
+				<a href="../"> <img src="/imgs/einstellungs_button_black.png" alt="link_image" height="35" width="35"></a>
+			</div>
+		-->
+				
+		</div>
+
+	
+
+
+		<div id="survey_settings" class="survey_settings_overlay">
+
+			<a href="javascript:void(0)" class="closebtn" onclick="close_survey_settings()">&times;</a>
+
+			<!--<object type="text/html" data="/survey_settings/survey_settings.html" width="100%" height="100%" style="overflow:auto;border:5px "></object>-->
+
+			<div th:replace="/survey_settings/survey_settings"></div>
+			
+			<!--<div class="survey_settings_content">
+					<a href="#">About</a>
+					<a href="#">Services</a>
+					<a href="#">Clients</a>
+					<a href="#">Contact</a>
+			</div>-->
+
+
+		</div>
+		
+
+		<script>
+			function open_survey_settings() {
+			document.getElementById("survey_settings").style.width = "100%";
+			}
+
+			function close_survey_settings() {
+			document.getElementById("survey_settings").style.width = "0%";
+			}
+		</script>
+
+
+
+
+
+		
+		<div id="start_menu" class="start_menu_overlay">
+
+			
+			<div class="start_menu_content">
+
+				<div class="button" id="start_menu_button">
+					<span style="cursor:pointer" onclick="start_menu_toggle()"><img src="/imgs/comaq_logo.png" alt="link_image" height="40" width="150"></span>
+				</div>
+							
+							
+				<a href="javascript:void(0)" class="closebtn" onclick="close_start_menu()">&times;</a>
+
+
+				<div class="button" id="main_settings_button">
+					<a href="../"> <img src="/imgs/einstellungs_button_black.png" alt="link_image" height="35" width="35"></a>
+				</div>
+
+			</div>
+
+				<div th:replace="/start_menu/start_menu"></div>
+				<!--<object type="text/html" data="../start_menu/start_menu.html" width="100%" height="100%" style="overflow:auto;border:5px "></object>-->
+		
+	
+
+		</div>
+		
+
+		<script>
+
+
+
+			function open_start_menu() {
+			document.getElementById("start_menu").style.height = "100%";
+			}
+
+			function close_start_menu() {
+			document.getElementById("start_menu").style.height = "60px";
+			}
+
+			var i = false;
+
+			function start_menu_toggle() {
+				if (i) {
+					close_start_menu();
+				} else {
+					open_start_menu();
+				}
+				i = !i;
+			}
+
+			function addSurvey() {
+				$.ajax({
+       				 url: "http://localhost:8080/rest/survey/create"
+   				})
+			}
+		</script>
+		
+				
+		<in id="container">
+
+			</br>
+			</br>
+			</br>
+
+			<h1>STUDIEN</h1>
+
+
+			<div id=survey_options>
+
+
+				<div id= survey_selector>
+					<select>	
+						<option th:each="survey: ${surveys}" th:text="${survey.name}"></option>
+						<option value="survey2">Studie 2</option>
+						<option value="survey3">Studie 3</option>
+						<option value="survey4">Studie 4</option><
+					</select>
+				</div>
+
+				<div class="button" id="survey_settings_button">
+					<span style="cursor:pointer" onclick="open_survey_settings()"><img src="/imgs/einstellungs_button_white.png" alt="link_image" height="16" width="16"></span>
+				</div>
+
+
+				<div class="button" id="add_survey_button">
+					<span style="cursor:pointer" onclick="addSurvey()"><img src="/imgs/add_button.png" alt="link_image" height="16" width="16"></span>
+				</div>
+
+<!--
+
+				<div class="button" id="start_menu_button">
+						<span style="cursor:pointer" onclick="open_start_menu()"><img src="/imgs/comaq_logo.png" alt="link_image" height="40" width="150"></span>
+					</div>
+
+
+
+
+				-->
+
+
+			</div>
+			
+			
+				
+		</div>
+
+
+		
+	</body>
+	
+
+	
+</html>
+
+
+
+<!--
+	<a href="../start_menu/start_menu.html"> <img src="/imgs/add_button.png" alt="link_image" height="16" width="16"></a>
+
+	<a href="../start_menu/start_menu.html"> <img src="/imgs/comaq_logo.png" alt="link_image" height="40" width="150"></a>
+
+	<span style="cursor:pointer" onclick="open_start_menu()"><img src="/imgs/comaq_logo.png" alt="link_image" height="40" width="60"></span>
+
+-->
+
+
+
+
+
